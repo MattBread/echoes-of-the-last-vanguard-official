@@ -1,0 +1,585 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Echoes of the Last Vanguard | Official Website</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #08080c;
+    color: #ededf2;
+    font-family: Arial, sans-serif;
+    line-height: 1.7;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 7%;
+    background: rgba(8,8,12,.96);
+    border-bottom: 1px solid #55202c;
+}
+
+.logo {
+    color: #e5a5b1;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 15px;
+}
+
+nav a {
+    color: #ccc;
+    text-decoration: none;
+    margin-left: 22px;
+    font-size: 13px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: #e58b9c;
+}
+
+.hero {
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 20px;
+    background:
+    linear-gradient(180deg,rgba(8,8,12,.3),#08080c),
+    radial-gradient(ellipse at center,#481923 0%,#1b1018 40%,#08080c 80%);
+}
+
+.hero-content {
+    max-width: 950px;
+}
+
+.eyebrow {
+    color: #d77c8e;
+    letter-spacing: 6px;
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(38px,7vw,76px);
+    line-height: 1.15;
+    letter-spacing: 4px;
+    color: #f0dce0;
+    text-shadow: 0 0 35px #b13d5a55;
+}
+
+.hero h1 span {
+    color: #d46b82;
+}
+
+.hero p {
+    color: #bbb2b9;
+    max-width: 650px;
+    margin: 25px auto;
+    font-size: 16px;
+}
+
+.hero-button {
+    display: inline-block;
+    padding: 13px 30px;
+    border: 1px solid #b34d63;
+    color: #f0c0c9;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 12px;
+    margin-top: 20px;
+    transition: .3s;
+}
+
+.hero-button:hover {
+    background: #782b3c;
+}
+
+.container {
+    width: 90%;
+    max-width: 1150px;
+    margin: auto;
+}
+
+section {
+    padding: 85px 0;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-heading small {
+    color: #c46b7e;
+    letter-spacing: 4px;
+    font-size: 11px;
+}
+
+.section-heading h2 {
+    font-size: 32px;
+    color: #e7c2c9;
+    letter-spacing: 3px;
+    margin-top: 8px;
+}
+
+.section-heading p {
+    color: #999;
+    margin-top: 12px;
+}
+
+.story {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+    color: #bbb;
+    font-size: 16px;
+}
+
+.story strong {
+    color: #e2a1ae;
+}
+
+.divider {
+    width: 70px;
+    height: 2px;
+    background: #a9475d;
+    margin: 25px auto;
+}
+
+.world-grid,
+.character-grid,
+.music-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+    gap: 22px;
+}
+
+.panel {
+    background: linear-gradient(145deg,#191218,#101015);
+    border: 1px solid #38232c;
+    padding: 28px;
+    border-radius: 8px;
+    transition: .3s;
+}
+
+.panel:hover {
+    transform: translateY(-5px);
+    border-color: #a84c62;
+}
+
+.panel h3 {
+    color: #e1a1ad;
+    margin-bottom: 12px;
+    font-size: 19px;
+}
+
+.panel p {
+    color: #aaa;
+    font-size: 14px;
+}
+
+.character-card {
+    text-align: center;
+    padding: 30px 20px;
+    background: linear-gradient(160deg,#21131b,#101015);
+    border: 1px solid #432631;
+    border-radius: 8px;
+}
+
+.character-symbol {
+    width: 85px;
+    height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background: radial-gradient(circle,#752b40,#190d14);
+    border: 1px solid #a64d63;
+    color: #f0c1ca;
+    font-size: 30px;
+}
+
+.character-card h3 {
+    color: #e5b1bb;
+    font-size: 21px;
+}
+
+.character-card .role {
+    color: #c06a7e;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin: 5px 0 12px;
+}
+
+.character-card p {
+    color: #aaa;
+    font-size: 13px;
+}
+
+.profile-link {
+    display: inline-block;
+    margin-top: 18px;
+    color: #e6a1af;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.profile-link:hover {
+    color: white;
+}
+
+.music-card {
+    text-align: center;
+    padding: 35px 20px;
+    background: #141117;
+    border: 1px solid #432631;
+    border-radius: 8px;
+}
+
+.music-card h3 {
+    color: #e4a3b0;
+    font-size: 22px;
+    margin: 12px 0;
+}
+
+.music-card small {
+    color: #bd7283;
+    letter-spacing: 2px;
+}
+
+.music-card p {
+    color: #aaa;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.credits {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(180deg,#100d12,#08080c);
+    border-top: 1px solid #49212d;
+}
+
+.credits h2 {
+    color: #e4a7b2;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.credits p {
+    color: #999;
+    font-size: 14px;
+    margin: 6px;
+}
+
+.credits strong {
+    color: #e3b0ba;
+}
+
+footer {
+    text-align: center;
+    padding: 22px;
+    color: #666;
+    font-size: 12px;
+    border-top: 1px solid #292027;
+}
+
+@media(max-width:700px) {
+    nav {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav a {
+        margin: 0 7px;
+        font-size: 11px;
+    }
+
+    .hero {
+        min-height: 550px;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">ECHOES OF THE LAST VANGUARD</div>
+    <div>
+        <a href="#story">STORY</a>
+        <a href="#world">WORLD</a>
+        <a href="#characters">CHARACTERS</a>
+        <a href="#music">SOUNDTRACK</a>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="hero-content">
+        <div class="eyebrow">AN ORIGINAL ANIME SERIES</div>
+
+        <h1>ECHOES OF THE<br><span>LAST VANGUARD</span></h1>
+
+        <p>
+            When the world fell, something ancient awakened.
+            Now, among the ruins of civilisation, the truth
+            is buried in forgotten memories, forbidden magic
+            and voices that refuse to disappear.
+        </p>
+
+        <a class="hero-button" href="#story">DISCOVER THE SERIES</a>
+    </div>
+</header>
+
+<main>
+
+<section id="story">
+    <div class="container">
+        <div class="section-heading">
+            <small>THE BEGINNING</small>
+            <h2>THE STORY</h2>
+            <div class="divider"></div>
+        </div>
+
+        <div class="story">
+            <p>
+                Ten years after the Collapse, humanity survives
+                in fortified settlements scattered across a
+                broken world. Abandoned cities conceal things
+                that were never meant to be discovered.
+            </p>
+
+            <br>
+
+            <p>
+                The <strong>Vanguard</strong> protects the remaining
+                survivors, investigating supernatural threats
+                and recovering mysterious magical books known
+                as <strong>Grimoires</strong>.
+            </p>
+
+            <br>
+
+            <p>
+                When Matt joins the Vanguard, searching for answers
+                about his missing sister, he discovers a connection
+                between his past, the Grimoires and something
+                ancient that has begun to remember him.
+            </p>
+
+            <br>
+
+            <p>
+                Some memories should remain forgotten.
+                Some voices should never answer.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="world">
+    <div class="container">
+        <div class="section-heading">
+            <small>THE WORLD AFTER THE COLLAPSE</small>
+            <h2>A BROKEN WORLD</h2>
+            <div class="divider"></div>
+            <p>Ten years of survival. Thousands of unanswered questions.</p>
+        </div>
+
+        <div class="world-grid">
+            <div class="panel">
+                <h3>The Collapse</h3>
+                <p>
+                    A catastrophic event that shattered civilisation
+                    ten years before the beginning of the series.
+                    Its true cause remains unknown.
+                </p>
+            </div>
+
+            <div class="panel">
+                <h3>The Vanguard</h3>
+                <p>
+                    A powerful military organisation protecting
+                    settlements, investigating disappearances
+                    and recovering dangerous Grimoires.
+                </p>
+            </div>
+
+            <div class="panel">
+                <h3>The Written Arts</h3>
+                <p>
+                    An ancient form of magic requiring inscriptions,
+                    concentration and a price that can permanently
+                    change those who use it.
+                </p>
+            </div>
+
+            <div class="panel">
+                <h3>The Grimoires</h3>
+                <p>
+                    Mysterious living fragments of an ancient
+                    intelligence. Every book holds its own
+                    consciousness, secrets and intentions.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="characters">
+    <div class="container">
+        <div class="section-heading">
+            <small>THE PEOPLE WHO REMAIN</small>
+            <h2>MAIN CHARACTERS</h2>
+            <div class="divider"></div>
+            <p>Nine lives connected by a world that refuses to stay buried.</p>
+        </div>
+
+        <div class="character-grid">
+
+            <div class="character-card">
+                <div class="character-symbol">M</div>
+                <h3>Matt</h3>
+                <div class="role">THE ECHO BEARER</div>
+                <p>A young Vanguard recruit haunted by voices from the past.</p>
+                <a class="profile-link" href="characters/matt.html">CHARACTER PROFILE →</a>
+            </div>
+
+            <div class="character-card">
+                <div class="character-symbol">T</div>
+                <h3>Tabitha</h3>
+                <div class="role">THE SOUL BINDER</div>
+                <p>Matt's closest friend and combat partner. A powerful Soul Magic user.</p>
+                <a class="profile-link" href="characters/tabitha.html">CHARACTER PROFILE →</a>
+            </div>
+
+            <div class="character-card">
+                <div class="character-symbol">K</div>
+                <h3>Kael</h3>
+                <div class="role">THE COMMANDER</div>
+                <p>A disciplined leader carrying the secrets of a lost battalion.</p>
+            </div>
+
+            <div class="character-card">
+                <div class="character-symbol">R</div>
+                <h3>Riven</h3>
+                <div class="role">THE RIVAL</div>
+                <p>An exceptionally skilled fighter driven by loss and ambition.</p>
+            </div>
+
+            <div class="character-card">
+                <div class="character-symbol">E</div>
+                <h3>Elara</h3>
+                <div class="role">THE MEDIC</div>
+                <p>A compassionate healer searching for ways to reverse magical corruption.</p>
+            </div>
+
+            <div class="character-card">
+                <div class="character-symbol">G</div>
+                <h3>Garrick</h3>
+                <div class="role">THE VETERAN</div>
+                <p>A battle-scarred survivor who knows more about the creatures than he admits.</p>
+            </div>
+
+            <div class="character-card">
+                <div class="character-symbol">F</div>
+                <h3>Finn</h3>
+                <div class="role">THE NEW RECRUIT</div>
+                <p>A nervous, clumsy young recruit with surprising courage and unstable magic.</p>
+            </div>
+
+            <div class="character-card">
+                <div class="character-symbol">S</div>
+                <h3>Seraphina</h3>
+                <div class="role">THE RESEARCHER</div>
+                <p>A brilliant researcher investigating forbidden inscriptions and lost memories.</p>
+            </div>
+
+            <div class="character-card">
+                <div class="character-symbol">D</div>
+                <h3>Darius</h3>
+                <div class="role">THE INTELLIGENCE OFFICER</div>
+                <p>A mysterious officer whose memories may not match reality.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="music">
+    <div class="container">
+        <div class="section-heading">
+            <small>THE SOUND OF THE SERIES</small>
+            <h2>OFFICIAL SOUNDTRACK</h2>
+            <div class="divider"></div>
+        </div>
+
+        <div class="music-grid">
+            <div class="music-card">
+                <small>OPENING THEME</small>
+                <h3>ASHES OF TOMORROW</h3>
+                <p>
+                    An explosive alternative rock anthem about
+                    survival, hope and fighting through the darkness.
+                </p>
+            </div>
+
+            <div class="music-card">
+                <small>ENDING THEME</small>
+                <h3>IF I COULD REMEMBER</h3>
+                <p>
+                    An emotional rock ballad about memories,
+                    friendship, loss and the people we refuse to forget.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<div class="credits">
+    <h2>ECHOES OF THE LAST VANGUARD</h2>
+    <p>An Original Anime Series</p>
+    <br>
+    <p>Created by <strong>Matt</strong></p>
+    <p>Story and World Created by Matt</p>
+    <p>Character Designs by Matt</p>
+    <p>Magic System and Grimoire Designs by Matt</p>
+    <p>Visual Concept and Series Direction by Matt</p>
+    <br>
+    <p>ご視聴ありがとうございました。</p>
+    <p>Thank you for being part of the journey.</p>
+</div>
+
+<footer>
+    © Echoes of the Last Vanguard | Created and Designed by Matt
+</footer>
+
+</body>
+</html>
