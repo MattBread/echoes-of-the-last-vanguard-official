@@ -1,0 +1,362 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Grimoire Archive | Echoes of the Last Vanguard</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;background:#080b16;color:#e8e9f5;
+ font-family:Georgia,'Times New Roman',serif;
+}
+header{
+ text-align:center;padding:75px 20px 55px;
+ background:linear-gradient(180deg,#17132d,#080b16);
+ border-bottom:1px solid #55418b;
+}
+.eyebrow{color:#a99bda;letter-spacing:5px;font-size:12px}
+h1{font-size:clamp(36px,7vw,65px);margin:18px 0;color:#e4d9ff}
+header p{color:#aaa9c1;max-width:650px;margin:auto;line-height:1.8}
+.back{
+ display:inline-block;margin-top:25px;color:#c7b4ff;
+ text-decoration:none;border:1px solid #7660a8;
+ padding:11px 20px;transition:.2s;
+}
+.back:hover{background:#7660a8;color:white}
+main{max-width:1200px;margin:auto;padding:45px 20px 80px}
+.intro{text-align:center;margin-bottom:35px}
+.intro h2{color:#d6c4ff;font-size:28px}
+.intro p{color:#999bb5;line-height:1.7}
+.controls{
+ display:flex;gap:12px;justify-content:center;
+ flex-wrap:wrap;margin:30px 0 40px;
+}
+input,select{
+ background:#111528;color:#eee;border:1px solid #55418b;
+ padding:13px 15px;font-size:14px;border-radius:4px;
+}
+input{width:min(100%,320px)}
+select{min-width:180px}
+.archive{
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+ gap:22px;
+}
+.book{
+ background:linear-gradient(145deg,#17182d,#0e1220);
+ border:1px solid #393252;border-radius:8px;
+ padding:25px;position:relative;overflow:hidden;
+ transition:transform .25s,border-color .25s;
+}
+.book:hover{transform:translateY(-5px);border-color:#a18ad8}
+.book:before{
+ content:"";position:absolute;top:0;left:0;width:100%;height:3px;
+ background:linear-gradient(90deg,#55418b,#a99bda,#55418b);
+}
+.number{color:#8171ad;font-size:12px;letter-spacing:3px}
+.book h3{font-size:25px;color:#e3d7ff;margin:12px 0 5px}
+.role{font-size:11px;letter-spacing:3px;color:#b39bdf}
+.magic{
+ display:inline-block;margin:15px 0;
+ padding:6px 10px;border:1px solid #59487e;
+ color:#c8b6ef;font-size:12px;border-radius:3px;
+}
+.book-title{color:#eee;font-style:italic;font-size:17px;margin:4px 0 15px}
+.description{color:#aeb0c5;line-height:1.7;font-size:14px}
+.book h4{
+ color:#c9b5f2;font-size:12px;letter-spacing:2px;
+ margin:22px 0 9px;
+}
+ul{padding-left:19px;color:#c3c4d5;line-height:1.9;font-size:14px}
+.cost{
+ border-left:2px solid #9477c9;padding:10px 13px;
+ color:#b9b5cc;background:#17182a;
+ font-size:13px;line-height:1.7;
+}
+footer{
+ text-align:center;padding:30px 15px;
+ border-top:1px solid #302844;color:#777990;
+ font-size:12px;letter-spacing:2px;
+}
+.hidden{display:none}
+@media(max-width:500px){
+ header{padding-top:50px}
+ main{padding-left:14px;padding-right:14px}
+ .book{padding:21px}
+}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="eyebrow">THE WRITTEN ARTS</div>
+ <h1>THE GRIMOIRE ARCHIVE</h1>
+ <p>
+ Ancient books. Forbidden knowledge. Powers that were never meant
+ to be understood. Every Grimoire holds a fragment of something
+ far older than the Collapse.
+ </p>
+ <a class="back" href="index.html">← RETURN TO THE OFFICIAL WEBSITE</a>
+</header>
+
+<main>
+ <section class="intro">
+  <h2>The Nine Known Grimoires</h2>
+  <p>
+   Each book is bound to its bearer. Each contains unique abilities,
+   hidden knowledge, and a price that must eventually be paid.
+  </p>
+ </section>
+
+ <div class="controls">
+  <input id="search" type="search" placeholder="Search characters or Grimoires...">
+  <select id="filter">
+   <option value="all">All Magic Types</option>
+   <option value="Echo">Echo Magic</option>
+   <option value="Soul">Soul Magic</option>
+   <option value="Dominion">Dominion Magic</option>
+   <option value="Rupture">Rupture Magic</option>
+   <option value="Vital">Vital Magic</option>
+   <option value="Ashen">Ashen Magic</option>
+   <option value="Radiant">Radiant Magic</option>
+   <option value="Forbidden Script">Forbidden Script Magic</option>
+   <option value="Veil">Veil Magic</option>
+  </select>
+ </div>
+
+ <section class="archive" id="archive">
+
+  <article class="book" data-magic="Echo">
+   <div class="number">ARCHIVE 001</div>
+   <h3>Matt</h3>
+   <div class="role">THE ECHO BEARER</div>
+   <div class="magic">Echo Magic</div>
+   <div class="book-title">The Book of Forgotten Voices</div>
+   <p class="description">
+    A mysterious Grimoire connected to memories, echoes, and voices
+    left behind by the past. Its connection to Matt appears to run
+    deeper than anyone understands.
+   </p>
+   <h4>KNOWN ABILITIES</h4>
+   <ul>
+    <li>Echo Sight</li><li>Phantom Strike</li>
+    <li>Memory Trace</li><li>Silent Corridor</li>
+    <li>Requiem</li>
+   </ul>
+   <h4>THE COST</h4>
+   <div class="cost">
+    Repeated use gradually erodes Matt's ability to trust his own
+    memories and distinguish past events from the present.
+   </div>
+  </article>
+
+  <article class="book" data-magic="Soul">
+   <div class="number">ARCHIVE 002</div>
+   <h3>Nova</h3>
+   <div class="role">THE SOUL BINDER</div>
+   <div class="magic">Soul Magic</div>
+   <div class="book-title">The Book of the Bound Soul</div>
+   <p class="description">
+    A powerful Grimoire governing spiritual bonds, protection,
+    and the connection between life and soul. Its true potential
+    remains largely unknown.
+   </p>
+   <h4>KNOWN ABILITIES</h4>
+   <ul>
+    <li>Soul Shield</li><li>Binding Chains</li>
+    <li>Vitality Transfer</li><li>Spirit Blade</li>
+    <li>Sanctuary</li>
+   </ul>
+   <h4>THE COST</h4>
+   <div class="cost">
+    Nova sacrifices her own life energy when protecting or sustaining
+    others. Powerful techniques leave her physically exhausted.
+   </div>
+  </article>
+
+  <article class="book" data-magic="Dominion">
+   <div class="number">ARCHIVE 003</div>
+   <h3>Kael</h3>
+   <div class="role">THE COMMANDER</div>
+   <div class="magic">Dominion Magic</div>
+   <div class="book-title">The Book of the Iron Covenant</div>
+   <p class="description">
+    A defensive Grimoire focused on territory, barriers, command,
+    and the protection of those standing behind its bearer.
+   </p>
+   <h4>KNOWN ABILITIES</h4>
+   <ul>
+    <li>Iron Wall</li><li>Command Seal</li>
+    <li>Thousandfold Guard</li><li>Final Authority</li>
+   </ul>
+   <h4>THE COST</h4>
+   <div class="cost">
+    Maintaining powerful defenses forces Kael to absorb tremendous
+    pressure and damage through his own body.
+   </div>
+  </article>
+
+  <article class="book" data-magic="Rupture">
+   <div class="number">ARCHIVE 004</div>
+   <h3>Riven</h3>
+   <div class="role">THE RIVAL</div>
+   <div class="magic">Rupture Magic</div>
+   <div class="book-title">The Book of Broken Space</div>
+   <p class="description">
+    A dangerous Grimoire capable of manipulating pressure,
+    force, and fractures in the space surrounding its bearer.
+   </p>
+   <h4>KNOWN ABILITIES</h4>
+   <ul>
+    <li>Rift Step</li><li>Crimson Break</li>
+    <li>Shatter Point</li><li>World Splitter</li>
+   </ul>
+   <h4>THE COST</h4>
+   <div class="cost">
+    The immense pressure created by Rupture Magic can damage
+    Riven's body, especially when he pushes beyond his limits.
+   </div>
+  </article>
+
+  <article class="book" data-magic="Vital">
+   <div class="number">ARCHIVE 005</div>
+   <h3>Elara</h3>
+   <div class="role">THE MEDIC</div>
+   <div class="magic">Vital Magic</div>
+   <div class="book-title">The Book of the Living Vein</div>
+   <p class="description">
+    A Grimoire governing biological energy, healing, and the
+    delicate balance between life and death.
+   </p>
+   <h4>KNOWN ABILITIES</h4>
+   <ul>
+    <li>Mending Touch</li><li>Blood Thread</li>
+    <li>Second Pulse</li><li>Life Reversal</li>
+   </ul>
+   <h4>THE COST</h4>
+   <div class="cost">
+    Healing transfers some of the physical burden to Elara.
+    Restoring life is not something she can simply do without consequence.
+   </div>
+  </article>
+
+  <article class="book" data-magic="Ashen">
+   <div class="number">ARCHIVE 006</div>
+   <h3>Garrick</h3>
+   <div class="role">THE VETERAN</div>
+   <div class="magic">Ashen Magic</div>
+   <div class="book-title">The Book of the Last Ember</div>
+   <p class="description">
+    An ancient Grimoire controlling ash, heat, combustion,
+    and the remnants left behind after destruction.
+   </p>
+   <h4>KNOWN ABILITIES</h4>
+   <ul>
+    <li>Ash Veil</li><li>Ember Fang</li>
+    <li>Cinder Rain</li><li>Ashes of War</li>
+   </ul>
+   <h4>THE COST</h4>
+   <div class="cost">
+    Powerful techniques consume oxygen and place enormous
+    physical strain on Garrick.
+   </div>
+  </article>
+
+  <article class="book" data-magic="Radiant">
+   <div class="number">ARCHIVE 007</div>
+   <h3>Finn</h3>
+   <div class="role">THE NEW RECRUIT</div>
+   <div class="magic">Radiant Magic</div>
+   <div class="book-title">The Book of the First Dawn</div>
+   <p class="description">
+    A volatile Grimoire that channels light, illumination,
+    and concentrated radiant energy. Its young bearer is
+    still learning to control it.
+   </p>
+   <h4>KNOWN ABILITIES</h4>
+   <ul>
+    <li>Flashpoint</li><li>Radiant Edge</li>
+    <li>Daybreak</li><li>Falling Star</li>
+   </ul>
+   <h4>THE COST</h4>
+   <div class="cost">
+    Overuse can temporarily damage Finn's eyesight.
+    His unstable magic makes every major spell a risk.
+   </div>
+  </article>
+
+  <article class="book" data-magic="Forbidden Script">
+   <div class="number">ARCHIVE 008</div>
+   <h3>Seraphina</h3>
+   <div class="role">THE RESEARCHER</div>
+   <div class="magic">Forbidden Script Magic</div>
+   <div class="book-title">The Book of Unwritten Names</div>
+   <p class="description">
+    A forbidden Grimoire capable of manipulating inscriptions,
+    magical laws, and knowledge that was meant to remain sealed.
+   </p>
+   <h4>KNOWN ABILITIES</h4>
+   <ul>
+    <li>Null Script</li><li>Rewrite</li>
+    <li>Name of Binding</li><li>Forbidden Chapter</li>
+   </ul>
+   <h4>THE COST</h4>
+   <div class="cost">
+    Forbidden spells permanently consume pieces of Seraphina's
+    memory. Some knowledge cannot be recovered.
+   </div>
+  </article>
+
+  <article class="book" data-magic="Veil">
+   <div class="number">ARCHIVE 009</div>
+   <h3>Darius</h3>
+   <div class="role">THE INTELLIGENCE OFFICER</div>
+   <div class="magic">Veil Magic</div>
+   <div class="book-title">The Book Behind the Mirror</div>
+   <p class="description">
+    A mysterious Grimoire dealing with shadows, concealment,
+    illusions, and the manipulation of perception.
+   </p>
+   <h4>KNOWN ABILITIES</h4>
+   <ul>
+    <li>Shadow Walk</li><li>False Image</li>
+    <li>Blackout</li><li>Mirror Prison</li>
+   </ul>
+   <h4>THE COST</h4>
+   <div class="cost">
+    Extended illusions can make Darius lose his ability to
+    distinguish reality from what he has created.
+   </div>
+  </article>
+
+ </section>
+</main>
+
+<footer>
+ ECHOES OF THE LAST VANGUARD · THE WRITTEN ARTS
+ <br><br> AN ARCHIVE OF THE KNOWN GRIMOIRES
+</footer>
+
+<script>
+const search = document.getElementById('search');
+const filter = document.getElementById('filter');
+const books = document.querySelectorAll('.book');
+
+function updateArchive(){
+ const term = search.value.toLowerCase();
+ const type = filter.value;
+
+ books.forEach(book => {
+  const matchesText = book.textContent.toLowerCase().includes(term);
+  const matchesType = type === 'all' || book.dataset.magic === type;
+  book.classList.toggle('hidden', !(matchesText && matchesType));
+ });
+}
+
+search.addEventListener('input', updateArchive);
+filter.addEventListener('change', updateArchive);
+</script>
+
+</body>
+</html>
