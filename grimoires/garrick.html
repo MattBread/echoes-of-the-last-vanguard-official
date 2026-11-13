@@ -1,0 +1,488 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="../images/characters/favicon.png.png">
+<title>The Book of the Last Ember | Echoes of the Last Vanguard</title>
+
+<style>
+*{box-sizing:border-box}
+
+:root{
+ --gold:#d8a66d;
+ --blue:#d97842;
+ --dark:#080807;
+ --panel:#17120f;
+ --red:#a74425;
+}
+
+body{
+ margin:0;
+ background:#080807;
+ color:#eeeaf5;
+ font-family:Georgia,'Times New Roman',serif;
+}
+
+header{
+ padding:18px 6%;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ border-bottom:1px solid #493025;
+ background:#100c0a;
+ position:sticky;
+ top:0;
+ z-index:10;
+}
+
+.logo{
+ color:var(--gold);
+ letter-spacing:3px;
+ font-size:13px;
+ font-weight:bold;
+}
+
+header a{
+ color:#c9c5d8;
+ text-decoration:none;
+ font-size:12px;
+ letter-spacing:2px;
+ margin-left:20px;
+}
+
+header a:hover{color:var(--gold)}
+
+.cover{
+ min-height:690px;
+ padding:90px 20px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
+ position:relative;
+ overflow:hidden;
+ background:
+ radial-gradient(ellipse at center,#65301c 0%,#24130e 35%,#080807 75%);
+ border-bottom:5px solid var(--gold);
+}
+
+.cover:before{
+ content:"";
+ position:absolute;
+ width:500px;
+ height:500px;
+ border:1px solid #d9784255;
+ border-radius:50%;
+ box-shadow:0 0 80px #d9572633,inset 0 0 80px #d9572622;
+}
+
+.cover:after{
+ content:"";
+ position:absolute;
+ width:350px;
+ height:350px;
+ border:1px solid #d8a66d44;
+ transform:rotate(45deg);
+}
+
+.cover-content{
+ position:relative;
+ z-index:2;
+ max-width:800px;
+}
+
+.cover-symbol{
+ font-size:100px;
+ color:#ffad65;
+ text-shadow:0 0 25px #ff7838,0 0 75px #d95726;
+ margin-bottom:20px;
+}
+
+.cover-kicker{
+ color:var(--gold);
+ letter-spacing:7px;
+ font-size:12px;
+}
+
+.cover h1{
+ font-size:clamp(42px,8vw,82px);
+ line-height:1;
+ text-transform:uppercase;
+ letter-spacing:4px;
+ margin:22px 0;
+ text-shadow:4px 4px #17100c;
+}
+
+.cover h2{
+ color:#f0b58c;
+ font-size:22px;
+ font-weight:normal;
+ font-style:italic;
+}
+
+.cover-line{
+ width:120px;
+ height:2px;
+ background:var(--gold);
+ margin:30px auto;
+}
+
+.cover p{
+ color:#c4c2d1;
+ letter-spacing:3px;
+ font-size:12px;
+}
+
+.section{
+ max-width:1100px;
+ margin:auto;
+ padding:75px 22px;
+}
+
+.section-heading{
+ text-align:center;
+ margin-bottom:45px;
+}
+
+.section-heading small{
+ color:var(--gold);
+ letter-spacing:5px;
+}
+
+.section-heading h2{
+ font-size:35px;
+ letter-spacing:3px;
+ margin:12px 0;
+}
+
+.section-heading p{
+ color:#aaa9ba;
+ line-height:1.7;
+}
+
+.comic-grid{
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:20px;
+}
+
+.panel{
+ min-height:300px;
+ position:relative;
+ overflow:hidden;
+ border:5px solid #c9a77e;
+ background:#21140f;
+ box-shadow:0 8px 25px #0009;
+}
+
+.panel-art{
+ min-height:300px;
+ display:flex;
+ flex-direction:column;
+ justify-content:flex-end;
+ padding:25px;
+ position:relative;
+ background:
+ radial-gradient(circle at 70% 30%,#bd633855,transparent 30%),
+ linear-gradient(145deg,#54301f,#21140f 65%,#080807);
+}
+
+.panel-art:before{
+ content:"";
+ position:absolute;
+ inset:12px;
+ border:1px solid #d8a66d44;
+ pointer-events:none;
+}
+
+.panel-number{
+ position:absolute;
+ top:22px;
+ left:24px;
+ color:var(--gold);
+ font-size:12px;
+ letter-spacing:3px;
+}
+
+.panel-art h3{
+ font-size:28px;
+ margin:0 0 10px;
+ text-transform:uppercase;
+ position:relative;
+ text-shadow:2px 2px #000;
+}
+
+.panel-art p{
+ position:relative;
+ color:#dddbea;
+ line-height:1.6;
+ max-width:450px;
+ margin:0;
+}
+
+.panel-wide{
+ grid-column:span 2;
+}
+
+.panel-wide .panel-art{
+ min-height:390px;
+ background:
+ radial-gradient(ellipse at 50% 40%,#d9784255,transparent 40%),
+ linear-gradient(135deg,#46251a,#1b120e 60%,#080807);
+}
+
+.spell-grid{
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:16px;
+}
+
+.spell{
+ padding:25px;
+ background:linear-gradient(145deg,#251710,#100d0b);
+ border:1px solid #75452e;
+ position:relative;
+}
+
+.spell:before{
+ content:"";
+ position:absolute;
+ top:0;
+ left:0;
+ width:4px;
+ height:100%;
+ background:var(--blue);
+}
+
+.spell small{
+ color:var(--gold);
+ letter-spacing:3px;
+}
+
+.spell h3{
+ font-size:23px;
+ margin:12px 0;
+ color:#f0b58c;
+}
+
+.spell p{
+ color:#bcbacb;
+ line-height:1.7;
+}
+
+.cost{
+ padding:35px;
+ border:1px solid #a34b2e;
+ background:linear-gradient(135deg,#32170f,#11100d);
+ text-align:center;
+}
+
+.cost h3{
+ color:#f0a17d;
+ letter-spacing:3px;
+}
+
+.cost p{
+ max-width:700px;
+ margin:15px auto;
+ line-height:1.8;
+ color:#d0c2cb;
+}
+
+.secret{
+ padding:40px;
+ background:#14100e;
+ border:1px dashed #a16c48;
+ text-align:center;
+}
+
+.secret h3{
+ color:#e3a77b;
+ letter-spacing:4px;
+}
+
+.secret p{
+ color:#b9b2c9;
+ line-height:1.8;
+}
+
+.quote{
+ font-size:24px;
+ font-style:italic;
+ color:#f0b58c;
+ line-height:1.6;
+}
+
+footer{
+ text-align:center;
+ padding:45px 20px;
+ border-top:1px solid #493025;
+ color:#858397;
+ font-size:12px;
+ letter-spacing:2px;
+}
+
+footer a{
+ color:var(--gold);
+ text-decoration:none;
+}
+
+@media(max-width:700px){
+ header{flex-direction:column;gap:14px}
+ header a{margin:0 8px}
+ .cover{min-height:550px}
+ .comic-grid,.spell-grid{grid-template-columns:1fr}
+ .panel-wide{grid-column:span 1}
+ .section{padding:55px 16px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="logo">ECHOES OF THE LAST VANGUARD</div>
+ <nav>
+  <a href="../grimoires.html">ARCHIVE</a>
+  <a href="../index.html">HOME</a>
+ </nav>
+</header>
+
+<section class="cover">
+ <div class="cover-content">
+  <div class="cover-symbol">🔥</div>
+  <div class="cover-kicker">THE WRITTEN ARTS • GRIMOIRE NO. 006</div>
+  <h1>The Book of<br>the Last Ember</h1>
+  <div class="cover-line"></div>
+  <h2>The Grimoire of Ashen Magic</h2>
+  <p>BOUND TO ITS BEARER: GARRICK</p>
+ </div>
+</section>
+
+<section class="section">
+ <div class="section-heading">
+  <small>ISSUE ONE</small>
+  <h2>THE ASHES REMAIN</h2>
+  <p>Some fires destroy everything. Others leave behind something that refuses to die.</p>
+ </div>
+
+ <div class="comic-grid">
+
+  <div class="panel">
+   <div class="panel-art">
+    <div class="panel-number">PANEL 01</div>
+    <h3>The Veteran</h3>
+    <p>Long before joining the Vanguard, Garrick learned what it meant to survive. Experience taught him that the worst things rarely announce themselves.</p>
+   </div>
+  </div>
+
+  <div class="panel">
+   <div class="panel-art">
+    <div class="panel-number">PANEL 02</div>
+    <h3>A Town Reduced to Ash</h3>
+    <p>His home was consumed by fire and an unknown creature. Garrick escaped, but the people and life he knew were lost.</p>
+   </div>
+  </div>
+
+  <div class="panel panel-wide">
+   <div class="panel-art">
+    <div class="panel-number">PANEL 03 — THE DISCOVERY</div>
+    <h3>Something in the Embers</h3>
+    <p>Among the ruins, Garrick discovered an ancient Grimoire. Its pages carried the warmth of a fire that had supposedly burned out years before.</p>
+   </div>
+  </div>
+
+  <div class="panel">
+   <div class="panel-art">
+    <div class="panel-number">PANEL 04</div>
+    <h3>The Written Arts</h3>
+    <p>Garrick learned to command ash, heat, and the remnants of combustion. Every inscription brought the memory of his lost home closer.</p>
+   </div>
+  </div>
+
+  <div class="panel">
+   <div class="panel-art">
+    <div class="panel-number">PANEL 05</div>
+    <h3>Not Alone</h3>
+    <p>The creature that destroyed his hometown was not acting alone. Garrick knows something else was there, watching from beyond the flames.</p>
+   </div>
+  </div>
+
+ </div>
+</section>
+
+<section class="section">
+ <div class="section-heading">
+  <small>THE WRITTEN ARTS</small>
+  <h2>THE FOUR KNOWN SPELLS</h2>
+  <p>Every spell must be inscribed. Every inscription demands concentration and a price.</p>
+ </div>
+
+ <div class="spell-grid">
+
+  <div class="spell">
+   <small>SPELL 01</small>
+   <h3>Ash Veil</h3>
+   <p>Releases a dense cloud of ash that obscures vision and conceals Garrick and his allies from approaching threats.</p>
+  </div>
+
+  <div class="spell">
+   <small>SPELL 02</small>
+   <h3>Ember Fang</h3>
+   <p>Shapes burning ash into a concentrated blade of heat capable of cutting through obstacles and striking enemies.</p>
+  </div>
+
+  <div class="spell">
+   <small>SPELL 03</small>
+   <h3>Cinder Rain</h3>
+   <p>Scatters glowing fragments across an area, raining hot cinders down upon anything caught beneath them.</p>
+  </div>
+
+  <div class="spell">
+   <small>SPELL 04 — UNKNOWN LIMITS</small>
+   <h3>Ashes of War</h3>
+   <p>A devastating release of heat and ash. Its full inscription remains hidden, even from Garrick himself.</p>
+  </div>
+
+ </div>
+</section>
+
+<section class="section">
+ <div class="section-heading">
+  <small>THE CONSEQUENCE</small>
+  <h2>THE PRICE OF ASHEN MAGIC</h2>
+ </div>
+
+ <div class="cost">
+  <h3>EVERY FLAME CONSUMES SOMETHING</h3>
+  <p>Ashen Magic draws upon the air around its bearer. The more Garrick commands heat and combustion, the more oxygen his body consumes.</p>
+  <p>Prolonged casting leaves him exhausted, struggling to breathe, and sometimes unable to stand. Push too far, and the fire he commands may become the last thing he ever sees.</p>
+ </div>
+</section>
+
+<section class="section">
+ <div class="section-heading">
+  <small>RESTRICTED ARCHIVE</small>
+  <h2>THE FIRE THAT NEVER ENDED</h2>
+ </div>
+
+ <div class="secret">
+  <h3>CLASSIFIED INSCRIPTION</h3>
+  <p>Garrick remembers the night his hometown burned. He remembers the creature moving through the streets, and the silence that followed it.</p>
+  <p>But the Grimoire contains a fragment that suggests another presence stood beyond the destruction. Something that did not enter the flames. Something that watched.</p>
+  <div class="quote">"The fire was never alone."</div>
+  <p>— Unidentified inscription within the Grimoire</p>
+ </div>
+</section>
+
+<footer>
+ <p>THE BOOK OF THE LAST EMBER</p>
+ <p>AN ARCHIVE OF THE WRITTEN ARTS</p>
+ <p><a href="../grimoires.html">RETURN TO THE GRIMOIRE ARCHIVE</a></p>
+ <p>ECHOES OF THE LAST VANGUARD</p>
+</footer>
+
+</body>
+</html>
