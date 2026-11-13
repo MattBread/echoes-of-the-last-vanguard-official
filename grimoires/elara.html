@@ -1,0 +1,488 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="../images/characters/favicon.png.png">
+<title>The Book of the Living Vein | Echoes of the Last Vanguard</title>
+
+<style>
+*{box-sizing:border-box}
+
+:root{
+ --gold:#b9d8c5;
+ --blue:#75cba0;
+ --dark:#080e0c;
+ --panel:#111b17;
+ --red:#397d5c;
+}
+
+body{
+ margin:0;
+ background:#080e0c;
+ color:#eeeaf5;
+ font-family:Georgia,'Times New Roman',serif;
+}
+
+header{
+ padding:18px 6%;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ border-bottom:1px solid #344a3d;
+ background:#090f0c;
+ position:sticky;
+ top:0;
+ z-index:10;
+}
+
+.logo{
+ color:var(--gold);
+ letter-spacing:3px;
+ font-size:13px;
+ font-weight:bold;
+}
+
+header a{
+ color:#c9d8ce;
+ text-decoration:none;
+ font-size:12px;
+ letter-spacing:2px;
+ margin-left:20px;
+}
+
+header a:hover{color:var(--gold)}
+
+.cover{
+ min-height:690px;
+ padding:90px 20px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
+ position:relative;
+ overflow:hidden;
+ background:
+ radial-gradient(ellipse at center,#244b38 0%,#12251b 35%,#080e0c 75%);
+ border-bottom:5px solid var(--blue);
+}
+
+.cover:before{
+ content:"";
+ position:absolute;
+ width:500px;
+ height:500px;
+ border:1px solid #75cba055;
+ border-radius:50%;
+ box-shadow:0 0 80px #4aa87833,inset 0 0 80px #4aa87822;
+}
+
+.cover:after{
+ content:"";
+ position:absolute;
+ width:350px;
+ height:350px;
+ border:1px solid #b9d8c544;
+ transform:rotate(45deg);
+}
+
+.cover-content{
+ position:relative;
+ z-index:2;
+ max-width:800px;
+}
+
+.cover-symbol{
+ font-size:100px;
+ color:#a9f0c7;
+ text-shadow:0 0 25px #75cba0,0 0 75px #397d5c;
+ margin-bottom:20px;
+}
+
+.cover-kicker{
+ color:var(--gold);
+ letter-spacing:7px;
+ font-size:12px;
+}
+
+.cover h1{
+ font-size:clamp(42px,8vw,82px);
+ line-height:1;
+ text-transform:uppercase;
+ letter-spacing:4px;
+ margin:22px 0;
+ text-shadow:4px 4px #102017;
+}
+
+.cover h2{
+ color:#b5e4c9;
+ font-size:22px;
+ font-weight:normal;
+ font-style:italic;
+}
+
+.cover-line{
+ width:120px;
+ height:2px;
+ background:var(--blue);
+ margin:30px auto;
+}
+
+.cover p{
+ color:#c4d2c9;
+ letter-spacing:3px;
+ font-size:12px;
+}
+
+.section{
+ max-width:1100px;
+ margin:auto;
+ padding:75px 22px;
+}
+
+.section-heading{
+ text-align:center;
+ margin-bottom:45px;
+}
+
+.section-heading small{
+ color:var(--gold);
+ letter-spacing:5px;
+}
+
+.section-heading h2{
+ font-size:35px;
+ letter-spacing:3px;
+ margin:12px 0;
+}
+
+.section-heading p{
+ color:#aaa9ba;
+ line-height:1.7;
+}
+
+.comic-grid{
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:20px;
+}
+
+.panel{
+ min-height:300px;
+ position:relative;
+ overflow:hidden;
+ border:5px solid #b9d0c0;
+ background:#142019;
+ box-shadow:0 8px 25px #0009;
+}
+
+.panel-art{
+ min-height:300px;
+ display:flex;
+ flex-direction:column;
+ justify-content:flex-end;
+ padding:25px;
+ position:relative;
+ background:
+ radial-gradient(circle at 70% 30%,#5bba8655,transparent 30%),
+ linear-gradient(145deg,#294a36,#111b15 65%,#080e0c);
+}
+
+.panel-art:before{
+ content:"";
+ position:absolute;
+ inset:12px;
+ border:1px solid #b9d8c544;
+ pointer-events:none;
+}
+
+.panel-number{
+ position:absolute;
+ top:22px;
+ left:24px;
+ color:var(--gold);
+ font-size:12px;
+ letter-spacing:3px;
+}
+
+.panel-art h3{
+ font-size:28px;
+ margin:0 0 10px;
+ text-transform:uppercase;
+ position:relative;
+ text-shadow:2px 2px #000;
+}
+
+.panel-art p{
+ position:relative;
+ color:#dce9df;
+ line-height:1.6;
+ max-width:450px;
+ margin:0;
+}
+
+.panel-wide{
+ grid-column:span 2;
+}
+
+.panel-wide .panel-art{
+ min-height:390px;
+ background:
+ radial-gradient(ellipse at 50% 40%,#68bd8b55,transparent 40%),
+ linear-gradient(135deg,#203e2b,#111b15 60%,#080e0c);
+}
+
+.spell-grid{
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:16px;
+}
+
+.spell{
+ padding:25px;
+ background:linear-gradient(145deg,#17271d,#0c130e);
+ border:1px solid #496d55;
+ position:relative;
+}
+
+.spell:before{
+ content:"";
+ position:absolute;
+ top:0;
+ left:0;
+ width:4px;
+ height:100%;
+ background:var(--blue);
+}
+
+.spell small{
+ color:var(--gold);
+ letter-spacing:3px;
+}
+
+.spell h3{
+ font-size:23px;
+ margin:12px 0;
+ color:#a9e6c0;
+}
+
+.spell p{
+ color:#bfcfc3;
+ line-height:1.7;
+}
+
+.cost{
+ padding:35px;
+ border:1px solid #477b5a;
+ background:linear-gradient(135deg,#182c20,#101812);
+ text-align:center;
+}
+
+.cost h3{
+ color:#a9e2bb;
+ letter-spacing:3px;
+}
+
+.cost p{
+ max-width:700px;
+ margin:15px auto;
+ line-height:1.8;
+ color:#c8d6cb;
+}
+
+.secret{
+ padding:40px;
+ background:#111a14;
+ border:1px dashed #6c9478;
+ text-align:center;
+}
+
+.secret h3{
+ color:#b5e3c3;
+ letter-spacing:4px;
+}
+
+.secret p{
+ color:#b9c9bd;
+ line-height:1.8;
+}
+
+.quote{
+ font-size:24px;
+ font-style:italic;
+ color:#a9e6c0;
+ line-height:1.6;
+}
+
+footer{
+ text-align:center;
+ padding:45px 20px;
+ border-top:1px solid #344a3d;
+ color:#858f87;
+ font-size:12px;
+ letter-spacing:2px;
+}
+
+footer a{
+ color:var(--gold);
+ text-decoration:none;
+}
+
+@media(max-width:700px){
+ header{flex-direction:column;gap:14px}
+ header a{margin:0 8px}
+ .cover{min-height:550px}
+ .comic-grid,.spell-grid{grid-template-columns:1fr}
+ .panel-wide{grid-column:span 1}
+ .section{padding:55px 16px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="logo">ECHOES OF THE LAST VANGUARD</div>
+ <nav>
+  <a href="../grimoires.html">ARCHIVE</a>
+  <a href="../index.html">HOME</a>
+ </nav>
+</header>
+
+<section class="cover">
+ <div class="cover-content">
+  <div class="cover-symbol">❧</div>
+  <div class="cover-kicker">THE WRITTEN ARTS • GRIMOIRE NO. 005</div>
+  <h1>The Book of<br>the Living Vein</h1>
+  <div class="cover-line"></div>
+  <h2>The Grimoire of Vital Magic</h2>
+  <p>BOUND TO ITS BEARER: ELARA</p>
+ </div>
+</section>
+
+<section class="section">
+ <div class="section-heading">
+  <small>ISSUE ONE</small>
+  <h2>THE BURDEN OF LIFE</h2>
+  <p>She learned how to save lives. Nobody taught her what saving them would take away.</p>
+ </div>
+
+ <div class="comic-grid">
+
+  <div class="panel">
+   <div class="panel-art">
+    <div class="panel-number">PANEL 01</div>
+    <h3>The Outbreak</h3>
+    <p>Elara grows up during a devastating outbreak. As settlements collapse around her, she watches people suffer from an illness nobody understands.</p>
+   </div>
+  </div>
+
+  <div class="panel">
+   <div class="panel-art">
+    <div class="panel-number">PANEL 02</div>
+    <h3>The First Healing</h3>
+    <p>Desperate to save someone close to her, Elara discovers an ancient Grimoire. Its pages reveal a form of magic woven into the living body itself.</p>
+   </div>
+  </div>
+
+  <div class="panel panel-wide">
+   <div class="panel-art">
+    <div class="panel-number">PANEL 03 — THE PRICE OF LIFE</div>
+    <h3>"Take What You Need From Me."</h3>
+    <p>Elara inscribes her first healing spell. The wounded person begins to recover, but the pain and exhaustion move into Elara. She realizes that her magic does not simply erase suffering. It transfers it.</p>
+   </div>
+  </div>
+
+  <div class="panel">
+   <div class="panel-art">
+    <div class="panel-number">PANEL 04</div>
+    <h3>The Living Vein</h3>
+    <p>She studies the Written Arts, learning to guide biological energy, repair damaged tissue and keep people alive when ordinary medicine fails.</p>
+   </div>
+  </div>
+
+  <div class="panel">
+   <div class="panel-art">
+    <div class="panel-number">PANEL 05</div>
+    <h3>The Unanswered Question</h3>
+    <p>Elara joins the Vanguard to investigate magical corruption and the strange illnesses spreading through the ruins. Some wounds resist even her strongest spells.</p>
+   </div>
+  </div>
+
+ </div>
+</section>
+
+<section class="section">
+ <div class="section-heading">
+  <small>THE WRITTEN ARTS</small>
+  <h2>THE FOUR KNOWN SPELLS</h2>
+  <p>Vital Magic manipulates the energy of living things. Every act of healing demands a sacrifice.</p>
+ </div>
+
+ <div class="spell-grid">
+
+  <div class="spell">
+   <small>SPELL 01</small>
+   <h3>Mending Touch</h3>
+   <p>Channels Vital Magic through Elara's hands to close wounds, repair damaged tissue and stabilize an injured person.</p>
+  </div>
+
+  <div class="spell">
+   <small>SPELL 02</small>
+   <h3>Blood Thread</h3>
+   <p>Creates delicate strands of magical energy that can bind wounds, connect damaged tissue and detect disturbances in a living body.</p>
+  </div>
+
+  <div class="spell">
+   <small>SPELL 03</small>
+   <h3>Second Pulse</h3>
+   <p>Forces a failing body to produce one more surge of vital energy, temporarily keeping someone alive when their body is close to shutting down.</p>
+  </div>
+
+  <div class="spell">
+   <small>SPELL 04 — FORBIDDEN LIMITS</small>
+   <h3>Life Reversal</h3>
+   <p>A dangerous technique that attempts to reverse catastrophic biological damage. Its true limits remain unknown, and it cannot casually restore the dead.</p>
+  </div>
+
+ </div>
+</section>
+
+<section class="section">
+ <div class="section-heading">
+  <small>THE CONSEQUENCE</small>
+  <h2>THE PRICE OF VITAL MAGIC</h2>
+ </div>
+
+ <div class="cost">
+  <h3>EVERY LIFE HAS A COST</h3>
+  <p>Elara cannot create life from nothing. Healing transfers part of the burden to her own body. Severe injuries can leave her with pain, exhaustion, weakness and lasting damage.</p>
+  <p>The more she gives to keep someone alive, the less strength remains for herself. If she tries to reverse death, the consequences may be beyond anything she can survive.</p>
+ </div>
+</section>
+
+<section class="section">
+ <div class="section-heading">
+  <small>RESTRICTED ARCHIVE</small>
+  <h2>THE CORRUPTION IN THE BLOOD</h2>
+ </div>
+
+ <div class="secret">
+  <h3>CLASSIFIED INSCRIPTION</h3>
+  <p>Elara's research has uncovered cases where the body appears to heal incorrectly. Wounds close, but something beneath the skin continues to change.</p>
+  <p>Some infected survivors carry traces of an energy that does not behave like ordinary Vital Magic. The Grimoire refuses to identify its source.</p>
+  <div class="quote">"Not everything that lives should be saved."</div>
+  <p>— Unidentified inscription discovered in the restricted pages</p>
+ </div>
+</section>
+
+<footer>
+ <p>THE BOOK OF THE LIVING VEIN</p>
+ <p>AN ARCHIVE OF THE WRITTEN ARTS</p>
+ <p><a href="../grimoires.html">RETURN TO THE GRIMOIRE ARCHIVE</a></p>
+ <p>ECHOES OF THE LAST VANGUARD</p>
+</footer>
+
+</body>
+</html>
