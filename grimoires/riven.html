@@ -1,0 +1,488 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="../images/characters/favicon.png.png">
+<title>The Book of Broken Space | Echoes of the Last Vanguard</title>
+
+<style>
+*{box-sizing:border-box}
+
+:root{
+ --gold:#c7a6a6;
+ --blue:#c94b60;
+ --dark:#09070c;
+ --panel:#171019;
+ --red:#a51f3d;
+}
+
+body{
+ margin:0;
+ background:#09070c;
+ color:#eeeaf5;
+ font-family:Georgia,'Times New Roman',serif;
+}
+
+header{
+ padding:18px 6%;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ border-bottom:1px solid #49303b;
+ background:#0d0910;
+ position:sticky;
+ top:0;
+ z-index:10;
+}
+
+.logo{
+ color:var(--gold);
+ letter-spacing:3px;
+ font-size:13px;
+ font-weight:bold;
+}
+
+header a{
+ color:#c9c5d8;
+ text-decoration:none;
+ font-size:12px;
+ letter-spacing:2px;
+ margin-left:20px;
+}
+
+header a:hover{color:var(--blue)}
+
+.cover{
+ min-height:690px;
+ padding:90px 20px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
+ position:relative;
+ overflow:hidden;
+ background:
+ radial-gradient(ellipse at center,#542035 0%,#24101d 35%,#09070c 75%);
+ border-bottom:5px solid var(--red);
+}
+
+.cover:before{
+ content:"";
+ position:absolute;
+ width:500px;
+ height:500px;
+ border:1px solid #c94b6055;
+ border-radius:50%;
+ box-shadow:0 0 80px #c0204533,inset 0 0 80px #c0204522;
+}
+
+.cover:after{
+ content:"";
+ position:absolute;
+ width:350px;
+ height:350px;
+ border:1px solid #c7a6a644;
+ transform:rotate(45deg);
+}
+
+.cover-content{
+ position:relative;
+ z-index:2;
+ max-width:800px;
+}
+
+.cover-symbol{
+ font-size:100px;
+ color:#ed8298;
+ text-shadow:0 0 25px #e34b70,0 0 75px #a51f3d;
+ margin-bottom:20px;
+}
+
+.cover-kicker{
+ color:var(--gold);
+ letter-spacing:7px;
+ font-size:12px;
+}
+
+.cover h1{
+ font-size:clamp(42px,8vw,82px);
+ line-height:1;
+ text-transform:uppercase;
+ letter-spacing:4px;
+ margin:22px 0;
+ text-shadow:4px 4px #17101a;
+}
+
+.cover h2{
+ color:#e7a0b1;
+ font-size:22px;
+ font-weight:normal;
+ font-style:italic;
+}
+
+.cover-line{
+ width:120px;
+ height:2px;
+ background:var(--red);
+ margin:30px auto;
+}
+
+.cover p{
+ color:#c4c2d1;
+ letter-spacing:3px;
+ font-size:12px;
+}
+
+.section{
+ max-width:1100px;
+ margin:auto;
+ padding:75px 22px;
+}
+
+.section-heading{
+ text-align:center;
+ margin-bottom:45px;
+}
+
+.section-heading small{
+ color:var(--gold);
+ letter-spacing:5px;
+}
+
+.section-heading h2{
+ font-size:35px;
+ letter-spacing:3px;
+ margin:12px 0;
+}
+
+.section-heading p{
+ color:#aaa9ba;
+ line-height:1.7;
+}
+
+.comic-grid{
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:20px;
+}
+
+.panel{
+ min-height:300px;
+ position:relative;
+ overflow:hidden;
+ border:5px solid #c7a6a6;
+ background:#1b1019;
+ box-shadow:0 8px 25px #0009;
+}
+
+.panel-art{
+ min-height:300px;
+ display:flex;
+ flex-direction:column;
+ justify-content:flex-end;
+ padding:25px;
+ position:relative;
+ background:
+ radial-gradient(circle at 70% 30%,#a53c5b55,transparent 30%),
+ linear-gradient(145deg,#492036,#1b101c 65%,#09070c);
+}
+
+.panel-art:before{
+ content:"";
+ position:absolute;
+ inset:12px;
+ border:1px solid #c7a6a644;
+ pointer-events:none;
+}
+
+.panel-number{
+ position:absolute;
+ top:22px;
+ left:24px;
+ color:var(--gold);
+ font-size:12px;
+ letter-spacing:3px;
+}
+
+.panel-art h3{
+ font-size:28px;
+ margin:0 0 10px;
+ text-transform:uppercase;
+ position:relative;
+ text-shadow:2px 2px #000;
+}
+
+.panel-art p{
+ position:relative;
+ color:#dddbea;
+ line-height:1.6;
+ max-width:450px;
+ margin:0;
+}
+
+.panel-wide{
+ grid-column:span 2;
+}
+
+.panel-wide .panel-art{
+ min-height:390px;
+ background:
+ radial-gradient(ellipse at 50% 40%,#a53c5b66,transparent 40%),
+ linear-gradient(135deg,#40182c,#1b101c 60%,#09070c);
+}
+
+.spell-grid{
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:16px;
+}
+
+.spell{
+ padding:25px;
+ background:linear-gradient(145deg,#241421,#100b12);
+ border:1px solid #754052;
+ position:relative;
+}
+
+.spell:before{
+ content:"";
+ position:absolute;
+ top:0;
+ left:0;
+ width:4px;
+ height:100%;
+ background:var(--blue);
+}
+
+.spell small{
+ color:var(--gold);
+ letter-spacing:3px;
+}
+
+.spell h3{
+ font-size:23px;
+ margin:12px 0;
+ color:#ed9bad;
+}
+
+.spell p{
+ color:#bcbacb;
+ line-height:1.7;
+}
+
+.cost{
+ padding:35px;
+ border:1px solid #a33c56;
+ background:linear-gradient(135deg,#301321,#11101c);
+ text-align:center;
+}
+
+.cost h3{
+ color:#e78ca3;
+ letter-spacing:3px;
+}
+
+.cost p{
+ max-width:700px;
+ margin:15px auto;
+ line-height:1.8;
+ color:#d0c2cb;
+}
+
+.secret{
+ padding:40px;
+ background:#11101a;
+ border:1px dashed #936078;
+ text-align:center;
+}
+
+.secret h3{
+ color:#e3a0b6;
+ letter-spacing:4px;
+}
+
+.secret p{
+ color:#b9b2c9;
+ line-height:1.8;
+}
+
+.quote{
+ font-size:24px;
+ font-style:italic;
+ color:#e5a0b2;
+ line-height:1.6;
+}
+
+footer{
+ text-align:center;
+ padding:45px 20px;
+ border-top:1px solid #49303b;
+ color:#858397;
+ font-size:12px;
+ letter-spacing:2px;
+}
+
+footer a{
+ color:var(--gold);
+ text-decoration:none;
+}
+
+@media(max-width:700px){
+ header{flex-direction:column;gap:14px}
+ header a{margin:0 8px}
+ .cover{min-height:550px}
+ .comic-grid,.spell-grid{grid-template-columns:1fr}
+ .panel-wide{grid-column:span 1}
+ .section{padding:55px 16px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="logo">ECHOES OF THE LAST VANGUARD</div>
+ <nav>
+  <a href="../grimoires.html">ARCHIVE</a>
+  <a href="../index.html">HOME</a>
+ </nav>
+</header>
+
+<section class="cover">
+ <div class="cover-content">
+  <div class="cover-symbol">裂</div>
+  <div class="cover-kicker">THE WRITTEN ARTS • GRIMOIRE NO. 004</div>
+  <h1>The Book of<br>Broken Space</h1>
+  <div class="cover-line"></div>
+  <h2>The Grimoire of Rupture Magic</h2>
+  <p>BOUND TO ITS BEARER: RIVEN</p>
+ </div>
+</section>
+
+<section class="section">
+ <div class="section-heading">
+  <small>ISSUE ONE</small>
+  <h2>THE FRACTURE WITHIN</h2>
+  <p>Some wounds never close. Some distances can never be crossed.</p>
+ </div>
+
+ <div class="comic-grid">
+
+  <div class="panel">
+   <div class="panel-art">
+    <div class="panel-number">PANEL 01</div>
+    <h3>The Last Escape</h3>
+    <p>Years before joining the Vanguard, Riven and his older brother are caught in a disaster that leaves their home in ruins.</p>
+   </div>
+  </div>
+
+  <div class="panel">
+   <div class="panel-art">
+    <div class="panel-number">PANEL 02</div>
+    <h3>The Sacrifice</h3>
+    <p>With danger closing in, his brother stays behind to give Riven a chance to escape. Riven survives. His brother disappears.</p>
+   </div>
+  </div>
+
+  <div class="panel panel-wide">
+   <div class="panel-art">
+    <div class="panel-number">PANEL 03 — THE FIRST FRACTURE</div>
+    <h3>A World Torn Apart</h3>
+    <p>Alone among the ruins, Riven discovers an ancient Grimoire. Its pages describe ways to split space itself. For the first time, the distance between him and his brother seems breakable.</p>
+   </div>
+  </div>
+
+  <div class="panel">
+   <div class="panel-art">
+    <div class="panel-number">PANEL 04</div>
+    <h3>Rupture Magic</h3>
+    <p>Riven learns to fracture the space around him, unleash destructive force and cross distances in the blink of an eye.</p>
+   </div>
+  </div>
+
+  <div class="panel">
+   <div class="panel-art">
+    <div class="panel-number">PANEL 05</div>
+    <h3>The Obsession</h3>
+    <p>Every new technique brings him closer to power, but farther from the person he used to be. Riven refuses to accept that his brother is gone.</p>
+   </div>
+  </div>
+
+ </div>
+</section>
+
+<section class="section">
+ <div class="section-heading">
+  <small>THE WRITTEN ARTS</small>
+  <h2>THE FOUR KNOWN SPELLS</h2>
+  <p>Rupture Magic bends and breaks the space between things. Every inscription carries a physical cost.</p>
+ </div>
+
+ <div class="spell-grid">
+
+  <div class="spell">
+   <small>SPELL 01</small>
+   <h3>Rift Step</h3>
+   <p>Allows Riven to tear open a brief spatial fracture and step through it, appearing a short distance away.</p>
+  </div>
+
+  <div class="spell">
+   <small>SPELL 02</small>
+   <h3>Crimson Break</h3>
+   <p>Releases a concentrated burst of rupture energy capable of smashing through obstacles and throwing enemies backward.</p>
+  </div>
+
+  <div class="spell">
+   <small>SPELL 03</small>
+   <h3>Shatter Point</h3>
+   <p>Creates a focused fracture at a chosen point, splitting solid surfaces or destabilizing an incoming attack.</p>
+  </div>
+
+  <div class="spell">
+   <small>SPELL 04 — UNKNOWN LIMITS</small>
+   <h3>World Splitter</h3>
+   <p>A devastating technique that tears open a massive spatial rupture. Its full range and consequences remain unknown, even to the Grimoire.</p>
+  </div>
+
+ </div>
+</section>
+
+<section class="section">
+ <div class="section-heading">
+  <small>THE CONSEQUENCE</small>
+  <h2>THE PRICE OF RUPTURE MAGIC</h2>
+ </div>
+
+ <div class="cost">
+  <h3>THE BODY BECOMES THE BREAKING POINT</h3>
+  <p>Rupture Magic places tremendous pressure on Riven's body. Every fracture he creates sends a portion of that force back through him, damaging muscles, joints and bones.</p>
+  <p>The stronger the rupture, the greater the physical punishment. Pushing beyond his limits could leave him unable to move — or permanently destroy his body.</p>
+ </div>
+</section>
+
+<section class="section">
+ <div class="section-heading">
+  <small>RESTRICTED ARCHIVE</small>
+  <h2>THE BROTHER WHO VANISHED</h2>
+ </div>
+
+ <div class="secret">
+  <h3>CLASSIFIED INSCRIPTION</h3>
+  <p>Riven has never accepted that his brother died. No body was recovered, and no reliable account explains what happened after the sacrifice.</p>
+  <p>Some pages in the Grimoire describe a presence trapped beyond a spatial fracture. The writing changes whenever Riven tries to read it.</p>
+  <div class="quote">"You were supposed to keep running."</div>
+  <p>— Unidentified inscription discovered within the Grimoire</p>
+ </div>
+</section>
+
+<footer>
+ <p>THE BOOK OF BROKEN SPACE</p>
+ <p>AN ARCHIVE OF THE WRITTEN ARTS</p>
+ <p><a href="../grimoires.html">RETURN TO THE GRIMOIRE ARCHIVE</a></p>
+ <p>ECHOES OF THE LAST VANGUARD</p>
+</footer>
+
+</body>
+</html>
