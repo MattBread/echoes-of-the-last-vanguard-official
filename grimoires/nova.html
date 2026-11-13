@@ -1,0 +1,493 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="../images/characters/favicon.png.png">
+<title>The Book of the Bound Soul | Echoes of the Last Vanguard</title>
+
+<style>
+*{box-sizing:border-box}
+
+:root{
+ --silver:#c9c6e8;
+ --violet:#a78bdb;
+ --crimson:#a44365;
+}
+
+body{
+ margin:0;
+ background:#0b0812;
+ color:#eeeaf5;
+ font-family:Georgia,'Times New Roman',serif;
+}
+
+header{
+ padding:18px 6%;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ border-bottom:1px solid #49334f;
+ background:#100b19;
+ position:sticky;
+ top:0;
+ z-index:10;
+}
+
+.logo{
+ color:#d7b5d0;
+ letter-spacing:3px;
+ font-size:13px;
+ font-weight:bold;
+}
+
+header a{
+ color:#d3c8df;
+ text-decoration:none;
+ font-size:12px;
+ letter-spacing:2px;
+ margin-left:20px;
+}
+
+header a:hover{color:#e9a9c6}
+
+.cover{
+ min-height:690px;
+ padding:90px 20px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
+ position:relative;
+ overflow:hidden;
+ background:
+ radial-gradient(ellipse at center,#50233e 0%,#24152f 40%,#0b0812 78%);
+ border-bottom:5px solid var(--crimson);
+}
+
+.cover:before{
+ content:"";
+ position:absolute;
+ width:500px;
+ height:500px;
+ border:1px solid #d5a2ce55;
+ border-radius:50%;
+ box-shadow:0 0 90px #bd4e9633,inset 0 0 90px #bd4e9622;
+}
+
+.cover:after{
+ content:"";
+ position:absolute;
+ width:350px;
+ height:350px;
+ border:1px solid #d7b5d044;
+ transform:rotate(45deg);
+}
+
+.cover-content{
+ position:relative;
+ z-index:2;
+ max-width:800px;
+}
+
+.cover-symbol{
+ font-size:100px;
+ color:#e5b8e6;
+ text-shadow:0 0 25px #d58bdc,0 0 75px #a443a9;
+ margin-bottom:20px;
+}
+
+.cover-kicker{
+ color:#e4a8c4;
+ letter-spacing:7px;
+ font-size:12px;
+}
+
+.cover h1{
+ font-size:clamp(42px,8vw,82px);
+ line-height:1;
+ text-transform:uppercase;
+ letter-spacing:4px;
+ margin:22px 0;
+ text-shadow:4px 4px #241326;
+}
+
+.cover h2{
+ color:#d5b9e8;
+ font-size:22px;
+ font-weight:normal;
+ font-style:italic;
+}
+
+.cover-line{
+ width:120px;
+ height:2px;
+ background:#d8a4c6;
+ margin:30px auto;
+}
+
+.cover p{
+ color:#d1c2d7;
+ letter-spacing:3px;
+ font-size:12px;
+}
+
+.section{
+ max-width:1100px;
+ margin:auto;
+ padding:75px 22px;
+}
+
+.section-heading{
+ text-align:center;
+ margin-bottom:45px;
+}
+
+.section-heading small{
+ color:#d99bbd;
+ letter-spacing:5px;
+}
+
+.section-heading h2{
+ font-size:35px;
+ letter-spacing:3px;
+ margin:12px 0;
+}
+
+.section-heading p{
+ color:#aaa0b7;
+ line-height:1.7;
+}
+
+.comic-grid{
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:20px;
+}
+
+.panel{
+ min-height:300px;
+ position:relative;
+ overflow:hidden;
+ border:5px solid #d2c0cf;
+ background:#211327;
+ box-shadow:0 8px 25px #0009;
+}
+
+.panel-art{
+ min-height:300px;
+ display:flex;
+ flex-direction:column;
+ justify-content:flex-end;
+ padding:25px;
+ position:relative;
+ background:
+ radial-gradient(circle at 70% 30%,#b35c9b55,transparent 30%),
+ linear-gradient(145deg,#49233f,#211326 65%,#0b0812);
+}
+
+.panel-art:before{
+ content:"";
+ position:absolute;
+ inset:12px;
+ border:1px solid #d8a4c655;
+ pointer-events:none;
+}
+
+.panel-number{
+ position:absolute;
+ top:22px;
+ left:24px;
+ color:#e2b0cd;
+ font-size:12px;
+ letter-spacing:3px;
+}
+
+.panel-art h3{
+ font-size:28px;
+ margin:0 0 10px;
+ text-transform:uppercase;
+ position:relative;
+ text-shadow:2px 2px #000;
+}
+
+.panel-art p{
+ position:relative;
+ color:#e0d3e4;
+ line-height:1.6;
+ max-width:450px;
+ margin:0;
+}
+
+.panel-wide{
+ grid-column:span 2;
+}
+
+.panel-wide .panel-art{
+ min-height:390px;
+ background:
+ radial-gradient(ellipse at 50% 40%,#bd689e66,transparent 40%),
+ linear-gradient(135deg,#502641,#24152f 60%,#0b0812);
+}
+
+.spell-grid{
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:16px;
+}
+
+.spell{
+ padding:25px;
+ background:linear-gradient(145deg,#29182e,#120d1c);
+ border:1px solid #725078;
+ position:relative;
+}
+
+.spell:before{
+ content:"";
+ position:absolute;
+ top:0;
+ left:0;
+ width:4px;
+ height:100%;
+ background:#c37bb7;
+}
+
+.spell small{
+ color:#ddaac9;
+ letter-spacing:3px;
+}
+
+.spell h3{
+ font-size:23px;
+ margin:12px 0;
+ color:#e2c0ed;
+}
+
+.spell p{
+ color:#c8bacd;
+ line-height:1.7;
+}
+
+.cost{
+ padding:35px;
+ border:1px solid #a14b6e;
+ background:linear-gradient(135deg,#351728,#17101e);
+ text-align:center;
+}
+
+.cost h3{
+ color:#efa6c4;
+ letter-spacing:3px;
+}
+
+.cost p{
+ max-width:700px;
+ margin:15px auto;
+ line-height:1.8;
+ color:#dbc6d3;
+}
+
+.secret{
+ padding:40px;
+ background:#17101e;
+ border:1px dashed #986c9e;
+ text-align:center;
+}
+
+.secret h3{
+ color:#d9a9e4;
+ letter-spacing:4px;
+}
+
+.secret p{
+ color:#c8b9d0;
+ line-height:1.8;
+}
+
+.quote{
+ font-size:24px;
+ font-style:italic;
+ color:#e4c2e9;
+ line-height:1.6;
+}
+
+footer{
+ text-align:center;
+ padding:45px 20px;
+ border-top:1px solid #49334f;
+ color:#95869c;
+ font-size:12px;
+ letter-spacing:2px;
+}
+
+footer a{
+ color:#ddaac9;
+ text-decoration:none;
+}
+
+@media(max-width:700px){
+ header{flex-direction:column;gap:14px}
+ header a{margin:0 8px}
+ .cover{min-height:550px}
+ .comic-grid,.spell-grid{grid-template-columns:1fr}
+ .panel-wide{grid-column:span 1}
+ .section{padding:55px 16px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="logo">ECHOES OF THE LAST VANGUARD</div>
+ <nav>
+  <a href="../grimoires.html">ARCHIVE</a>
+  <a href="../index.html">HOME</a>
+ </nav>
+</header>
+
+<section class="cover">
+ <div class="cover-content">
+  <div class="cover-symbol">♡</div>
+  <div class="cover-kicker">THE WRITTEN ARTS • GRIMOIRE NO. 002</div>
+  <h1>The Book of<br>The Bound Soul</h1>
+  <div class="cover-line"></div>
+  <h2>The Grimoire of Soul Magic</h2>
+  <p>BOUND TO ITS BEARER: NOVA</p>
+ </div>
+</section>
+
+<section class="section">
+ <div class="section-heading">
+  <small>ISSUE ONE</small>
+  <h2>THE WEIGHT OF ANOTHER LIFE</h2>
+  <p>Some people are born to survive. Others choose to make sure everyone else does.</p>
+ </div>
+
+ <div class="comic-grid">
+
+  <div class="panel">
+   <div class="panel-art">
+    <div class="panel-number">PANEL 01</div>
+    <h3>A Different Kind of Power</h3>
+    <p>In a world where survival comes at a terrible price, Nova learns that protecting another person can demand more than courage.</p>
+   </div>
+  </div>
+
+  <div class="panel">
+   <div class="panel-art">
+    <div class="panel-number">PANEL 02</div>
+    <h3>The Bound Book</h3>
+    <p>An ancient Grimoire answers Nova's touch. Its pages carry inscriptions unlike anything she has ever studied.</p>
+   </div>
+  </div>
+
+  <div class="panel panel-wide">
+   <div class="panel-art">
+    <div class="panel-number">PANEL 03 — THE FIRST BINDING</div>
+    <h3>A Soul Reaches Out</h3>
+    <p>When another life hangs in the balance, Nova writes her first inscription. Crimson and violet light surrounds her as a shield forms between death and the person she refuses to lose.</p>
+   </div>
+  </div>
+
+  <div class="panel">
+   <div class="panel-art">
+    <div class="panel-number">PANEL 04</div>
+    <h3>The Strength to Protect</h3>
+    <p>Nova discovers that Soul Magic can bind, defend, transfer vitality, and create a sanctuary for those under her protection.</p>
+   </div>
+  </div>
+
+  <div class="panel">
+   <div class="panel-art">
+    <div class="panel-number">PANEL 05</div>
+    <h3>The Hidden Cost</h3>
+    <p>Every life she protects takes something from her own. The Grimoire never promises that its bearer will emerge unharmed.</p>
+   </div>
+  </div>
+
+ </div>
+</section>
+
+<section class="section">
+ <div class="section-heading">
+  <small>THE WRITTEN ARTS</small>
+  <h2>THE FIVE KNOWN SPELLS</h2>
+  <p>Nova's inscriptions connect the lives and energies of those around her.</p>
+ </div>
+
+ <div class="spell-grid">
+
+  <div class="spell">
+   <small>SPELL 01</small>
+   <h3>Soul Shield</h3>
+   <p>Creates a protective barrier around Nova or another person, absorbing incoming harm through a bond of soul energy.</p>
+  </div>
+
+  <div class="spell">
+   <small>SPELL 02</small>
+   <h3>Binding Chains</h3>
+   <p>Summons spectral chains capable of restraining hostile entities and holding them in place.</p>
+  </div>
+
+  <div class="spell">
+   <small>SPELL 03</small>
+   <h3>Vitality Transfer</h3>
+   <p>Transfers life energy from Nova to another person, helping sustain someone who might otherwise perish.</p>
+  </div>
+
+  <div class="spell">
+   <small>SPELL 04</small>
+   <h3>Spirit Blade</h3>
+   <p>Forms a weapon of concentrated soul energy, allowing Nova to fight at close range with extraordinary precision.</p>
+  </div>
+
+  <div class="spell" style="grid-column:span 2">
+   <small>SPELL 05 — THE SANCTUARY</small>
+   <h3>Sanctuary</h3>
+   <p>Creates a powerful protective field capable of sheltering multiple people. Its true limits and consequences remain unknown.</p>
+  </div>
+
+ </div>
+</section>
+
+<section class="section">
+ <div class="section-heading">
+  <small>THE CONSEQUENCE</small>
+  <h2>THE PRICE OF SOUL MAGIC</h2>
+ </div>
+
+ <div class="cost">
+  <h3>EVERY LIFE HAS A WEIGHT</h3>
+  <p>Nova's magic consumes her own life energy. The greater the protection or transfer, the more deeply the cost is felt.</p>
+  <p>She can protect others, but she cannot give endlessly without consequence. Even the strongest soul has limits.</p>
+ </div>
+</section>
+
+<section class="section">
+ <div class="section-heading">
+  <small>RESTRICTED ARCHIVE</small>
+  <h2>THE SOUL BENEATH THE PAGES</h2>
+ </div>
+
+ <div class="secret">
+  <h3>CLASSIFIED INSCRIPTION</h3>
+  <p>The Grimoire's oldest pages contain markings that do not appear in ordinary light. Some inscriptions seem to respond when Nova is near Matt.</p>
+  <p>There are things about Nova's connection to Soul Magic that even she does not fully understand.</p>
+  <p>One final inscription appears only briefly before vanishing again.</p>
+  <div class="quote">"A soul can carry more than one truth."</div>
+  <p>— Unidentified inscription within the Grimoire</p>
+ </div>
+</section>
+
+<footer>
+ <p>THE BOOK OF THE BOUND SOUL</p>
+ <p>AN ARCHIVE OF THE WRITTEN ARTS</p>
+ <p><a href="../grimoires.html">RETURN TO THE GRIMOIRE ARCHIVE</a></p>
+ <p>ECHOES OF THE LAST VANGUARD</p>
+</footer>
+
+</body>
+</html>
