@@ -1,0 +1,494 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="../images/characters/favicon.png.png">
+<title>The Book of Forgotten Voices | Echoes of the Last Vanguard</title>
+
+<style>
+*{box-sizing:border-box}
+
+:root{
+ --gold:#d8bd82;
+ --blue:#829bdc;
+ --dark:#080912;
+ --panel:#111526;
+ --red:#8e344e;
+}
+
+body{
+ margin:0;
+ background:#080912;
+ color:#eeeaf5;
+ font-family:Georgia,'Times New Roman',serif;
+}
+
+header{
+ padding:18px 6%;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ border-bottom:1px solid #34334a;
+ background:#090b16;
+ position:sticky;
+ top:0;
+ z-index:10;
+}
+
+.logo{
+ color:var(--gold);
+ letter-spacing:3px;
+ font-size:13px;
+ font-weight:bold;
+}
+
+header a{
+ color:#c9c5d8;
+ text-decoration:none;
+ font-size:12px;
+ letter-spacing:2px;
+ margin-left:20px;
+}
+
+header a:hover{color:var(--gold)}
+
+.cover{
+ min-height:690px;
+ padding:90px 20px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
+ position:relative;
+ overflow:hidden;
+ background:
+ radial-gradient(ellipse at center,#29335d 0%,#12172c 35%,#080912 75%);
+ border-bottom:5px solid var(--gold);
+}
+
+.cover:before{
+ content:"";
+ position:absolute;
+ width:500px;
+ height:500px;
+ border:1px solid #8b9bd255;
+ border-radius:50%;
+ box-shadow:0 0 80px #6e83dc33,inset 0 0 80px #6e83dc22;
+}
+
+.cover:after{
+ content:"";
+ position:absolute;
+ width:350px;
+ height:350px;
+ border:1px solid #d8bd8244;
+ transform:rotate(45deg);
+}
+
+.cover-content{
+ position:relative;
+ z-index:2;
+ max-width:800px;
+}
+
+.cover-symbol{
+ font-size:100px;
+ color:#b3c3ff;
+ text-shadow:0 0 25px #8daaff,0 0 75px #637bdc;
+ margin-bottom:20px;
+}
+
+.cover-kicker{
+ color:var(--gold);
+ letter-spacing:7px;
+ font-size:12px;
+}
+
+.cover h1{
+ font-size:clamp(42px,8vw,82px);
+ line-height:1;
+ text-transform:uppercase;
+ letter-spacing:4px;
+ margin:22px 0;
+ text-shadow:4px 4px #17172b;
+}
+
+.cover h2{
+ color:#b9c8f4;
+ font-size:22px;
+ font-weight:normal;
+ font-style:italic;
+}
+
+.cover-line{
+ width:120px;
+ height:2px;
+ background:var(--gold);
+ margin:30px auto;
+}
+
+.cover p{
+ color:#c4c2d1;
+ letter-spacing:3px;
+ font-size:12px;
+}
+
+.section{
+ max-width:1100px;
+ margin:auto;
+ padding:75px 22px;
+}
+
+.section-heading{
+ text-align:center;
+ margin-bottom:45px;
+}
+
+.section-heading small{
+ color:var(--gold);
+ letter-spacing:5px;
+}
+
+.section-heading h2{
+ font-size:35px;
+ letter-spacing:3px;
+ margin:12px 0;
+}
+
+.section-heading p{
+ color:#aaa9ba;
+ line-height:1.7;
+}
+
+.comic-grid{
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:20px;
+}
+
+.panel{
+ min-height:300px;
+ position:relative;
+ overflow:hidden;
+ border:5px solid #d2c7a9;
+ background:#151b30;
+ box-shadow:0 8px 25px #0009;
+}
+
+.panel-art{
+ min-height:300px;
+ display:flex;
+ flex-direction:column;
+ justify-content:flex-end;
+ padding:25px;
+ position:relative;
+ background:
+ radial-gradient(circle at 70% 30%,#6676b655,transparent 30%),
+ linear-gradient(145deg,#293452,#101322 65%,#080912);
+}
+
+.panel-art:before{
+ content:"";
+ position:absolute;
+ inset:12px;
+ border:1px solid #d8bd8244;
+ pointer-events:none;
+}
+
+.panel-number{
+ position:absolute;
+ top:22px;
+ left:24px;
+ color:var(--gold);
+ font-size:12px;
+ letter-spacing:3px;
+}
+
+.panel-art h3{
+ font-size:28px;
+ margin:0 0 10px;
+ text-transform:uppercase;
+ position:relative;
+ text-shadow:2px 2px #000;
+}
+
+.panel-art p{
+ position:relative;
+ color:#dddbea;
+ line-height:1.6;
+ max-width:450px;
+ margin:0;
+}
+
+.panel-wide{
+ grid-column:span 2;
+}
+
+.panel-wide .panel-art{
+ min-height:390px;
+ background:
+ radial-gradient(ellipse at 50% 40%,#7888d655,transparent 40%),
+ linear-gradient(135deg,#20294a,#101322 60%,#080912);
+}
+
+.spell-grid{
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:16px;
+}
+
+.spell{
+ padding:25px;
+ background:linear-gradient(145deg,#171d33,#0c101d);
+ border:1px solid #4b5070;
+ position:relative;
+}
+
+.spell:before{
+ content:"";
+ position:absolute;
+ top:0;
+ left:0;
+ width:4px;
+ height:100%;
+ background:var(--blue);
+}
+
+.spell small{
+ color:var(--gold);
+ letter-spacing:3px;
+}
+
+.spell h3{
+ font-size:23px;
+ margin:12px 0;
+ color:#c5d0ff;
+}
+
+.spell p{
+ color:#bcbacb;
+ line-height:1.7;
+}
+
+.cost{
+ padding:35px;
+ border:1px solid #86475d;
+ background:linear-gradient(135deg,#281522,#11101c);
+ text-align:center;
+}
+
+.cost h3{
+ color:#e7a2b7;
+ letter-spacing:3px;
+}
+
+.cost p{
+ max-width:700px;
+ margin:15px auto;
+ line-height:1.8;
+ color:#d0c2cb;
+}
+
+.secret{
+ padding:40px;
+ background:#11101a;
+ border:1px dashed #76658e;
+ text-align:center;
+}
+
+.secret h3{
+ color:#c5a5e9;
+ letter-spacing:4px;
+}
+
+.secret p{
+ color:#b9b2c9;
+ line-height:1.8;
+}
+
+.quote{
+ font-size:24px;
+ font-style:italic;
+ color:#c4c9ef;
+ line-height:1.6;
+}
+
+footer{
+ text-align:center;
+ padding:45px 20px;
+ border-top:1px solid #35334a;
+ color:#858397;
+ font-size:12px;
+ letter-spacing:2px;
+}
+
+footer a{
+ color:var(--gold);
+ text-decoration:none;
+}
+
+@media(max-width:700px){
+ header{flex-direction:column;gap:14px}
+ header a{margin:0 8px}
+ .cover{min-height:550px}
+ .comic-grid,.spell-grid{grid-template-columns:1fr}
+ .panel-wide{grid-column:span 1}
+ .section{padding:55px 16px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="logo">ECHOES OF THE LAST VANGUARD</div>
+ <nav>
+  <a href="../grimoires.html">ARCHIVE</a>
+  <a href="../index.html">HOME</a>
+ </nav>
+</header>
+
+<section class="cover">
+ <div class="cover-content">
+  <div class="cover-symbol">✧</div>
+  <div class="cover-kicker">THE WRITTEN ARTS • GRIMOIRE NO. 001</div>
+  <h1>The Book of<br>Forgotten Voices</h1>
+  <div class="cover-line"></div>
+  <h2>The Grimoire of Echo Magic</h2>
+  <p>BOUND TO ITS BEARER: MATT</p>
+ </div>
+</section>
+
+<section class="section">
+ <div class="section-heading">
+  <small>ISSUE ONE</small>
+  <h2>THE VOICE IN THE DARK</h2>
+  <p>Every story begins somewhere. This one begins with a voice that should not exist.</p>
+ </div>
+
+ <div class="comic-grid">
+
+  <div class="panel">
+   <div class="panel-art">
+    <div class="panel-number">PANEL 01</div>
+    <h3>Ten Years After</h3>
+    <p>The world has fallen silent. Settlements survive behind walls, and the Vanguard searches the ruins for answers.</p>
+   </div>
+  </div>
+
+  <div class="panel">
+   <div class="panel-art">
+    <div class="panel-number">PANEL 02</div>
+    <h3>The Discovery</h3>
+    <p>Deep beneath a forgotten structure, Matt discovers an ancient book. Its pages turn without a hand touching them.</p>
+   </div>
+  </div>
+
+  <div class="panel panel-wide">
+   <div class="panel-art">
+    <div class="panel-number">PANEL 03 — THE FIRST WHISPER</div>
+    <h3>"Matt... Can You Hear Me?"</h3>
+    <p>A familiar voice escapes from the pages. A voice belonging to someone he has spent years trying to find. His missing sister, Mara.</p>
+   </div>
+  </div>
+
+  <div class="panel">
+   <div class="panel-art">
+    <div class="panel-number">PANEL 04</div>
+    <h3>The Written Arts</h3>
+    <p>Symbols appear across the pages. Matt realizes the book is not simply recording magic. It is teaching him how to write it.</p>
+   </div>
+  </div>
+
+  <div class="panel">
+   <div class="panel-art">
+    <div class="panel-number">PANEL 05</div>
+    <h3>The Price</h3>
+    <p>Each spell leaves something behind. The more Matt listens to the voices, the less certain he becomes of his own memories.</p>
+   </div>
+  </div>
+
+ </div>
+</section>
+
+<section class="section">
+ <div class="section-heading">
+  <small>THE WRITTEN ARTS</small>
+  <h2>THE FIVE KNOWN SPELLS</h2>
+  <p>Every spell must be inscribed. Every inscription demands concentration and a price.</p>
+ </div>
+
+ <div class="spell-grid">
+
+  <div class="spell">
+   <small>SPELL 01</small>
+   <h3>Echo Sight</h3>
+   <p>Allows Matt to perceive lingering traces of past events, revealing fragments of what happened in a location.</p>
+  </div>
+
+  <div class="spell">
+   <small>SPELL 02</small>
+   <h3>Phantom Strike</h3>
+   <p>Creates an echo of a previous movement, allowing a spectral attack to follow Matt's physical strike.</p>
+  </div>
+
+  <div class="spell">
+   <small>SPELL 03</small>
+   <h3>Memory Trace</h3>
+   <p>Lets Matt follow residual memories connected to a person, object, or place.</p>
+  </div>
+
+  <div class="spell">
+   <small>SPELL 04</small>
+   <h3>Silent Corridor</h3>
+   <p>Suppresses sound within a limited area, concealing movement and creating an unnerving silence.</p>
+  </div>
+
+  <div class="spell" style="grid-column:span 2">
+   <small>SPELL 05 — UNKNOWN LIMITS</small>
+   <h3>Requiem</h3>
+   <p>A powerful Echo technique whose true capabilities remain unknown. Even the Grimoire seems reluctant to reveal its complete inscription.</p>
+  </div>
+
+ </div>
+</section>
+
+<section class="section">
+ <div class="section-heading">
+  <small>THE CONSEQUENCE</small>
+  <h2>THE PRICE OF ECHO MAGIC</h2>
+ </div>
+
+ <div class="cost">
+  <h3>MEMORIES CANNOT BE TRUSTED</h3>
+  <p>Repeated use of Echo Magic slowly erodes Matt's confidence in his own memories. Faces become uncertain. Conversations change. Events he remembers clearly may never have happened.</p>
+  <p>The most terrifying possibility is that the voices in his Grimoire may know memories that Matt himself has forgotten.</p>
+ </div>
+</section>
+
+<section class="section">
+ <div class="section-heading">
+  <small>RESTRICTED ARCHIVE</small>
+  <h2>THE PAGES THAT SHOULD NOT EXIST</h2>
+ </div>
+
+ <div class="secret">
+  <h3>CLASSIFIED INSCRIPTION</h3>
+  <p>Some pages appear blank until Matt is alone. Others contain handwriting that resembles his own.</p>
+  <p>There are references to events that have not happened yet. One page contains a name that Matt has not spoken in ten years.</p>
+  <div class="quote">"You took too long."</div>
+  <p>— Unidentified voice recorded within the Grimoire</p>
+ </div>
+</section>
+
+<footer>
+ <p>THE BOOK OF FORGOTTEN VOICES</p>
+ <p>AN ARCHIVE OF THE WRITTEN ARTS</p>
+ <p><a href="../grimoires.html">RETURN TO THE GRIMOIRE ARCHIVE</a></p>
+ <p> ECHOES OF THE LAST VANGUARD </p>
+</footer>
+
+</body>
+</html>
